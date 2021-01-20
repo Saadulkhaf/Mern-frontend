@@ -8,7 +8,7 @@ const userReducer = (state = defaultState, action) => {
     case "SET_USER":
       return {
         loggedIn: true,
-        user: { ...action.payload },
+        user: { id: action.payload },
       };
     case "LOG_OUT":
       return {
