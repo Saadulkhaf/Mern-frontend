@@ -70,7 +70,7 @@ class SignupComponent extends React.Component {
           Register
         </button>
         <p className="forgot-password text-right">
-          Already registered <a href="#">log in?</a>
+          Already registered <a href="/">log in?</a>
         </p>
       </form>
     );

@@ -1,5 +1,3 @@
-import { useHistory } from "react-router-dom";
-
 export const setUser = (payload) => ({ type: "SET_USER", payload });
 
 export const logUserOut = () => ({ type: "LOG_OUT" });
@@ -42,7 +40,6 @@ export const fetchUser = (userInfo) => (dispatch) => {
       //   localStorage.setItem("token", data.header.auth - token);
       localStorage.setItem("token", data.token);
       dispatch(setUser(data));
-      // history.push("/sign-up");
     });
 };
 

@@ -15,7 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={history}>
+      <Router>
         <div className="App">
           <nav className="navbar navbar-expand-lg navbar-light fixed-top">
             <div className="container">
