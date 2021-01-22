@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { autoLogin } from "./actions";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import history from "./history";
 
 class App extends React.Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className="App">
           <nav className="navbar navbar-expand-lg navbar-light fixed-top">
             <div className="container">
