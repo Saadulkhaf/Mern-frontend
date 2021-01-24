@@ -1,80 +1,69 @@
 import React from "react";
 import { connect } from "react-redux";
 import { signUserUp } from "../actions/index";
+import { useState, useEffect } from "react";
 
-class SignupComponent extends React.Component {
-  state = {
-    email: "",
-    name: "",
-    password: "",
-  };
+function SignupComponent(props) {
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [name, setName] = useState(null);
 
-  handleOnChange = (e) => {
-    e.persist();
-    this.setState(() => ({
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    this.props.signUserUp(this.state);
+    props.signUserUp({ name, email, password });
   };
 
-  render() {
-    console.log(this.state);
-    return (
-      <form onSubmit={this.onSubmit}>
-        <h3>Register</h3>
-        <div className="form-group">
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            className="form-control"
-            placeholder="Username"
-            value={this.state.name}
-            onChange={this.handleOnChange}
-          />
-        </div>
+  return (
+    <form onSubmit={onSubmit}>
+      <h3>Register</h3>
+      <div className="form-group">
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          className="form-control"
+          placeholder="Username"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
 
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleOnChange}
-          />
-        </div>
+      <div className="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Enter email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.email)}
+        />
+      </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleOnChange}
-          />
-        </div>
+      <div className="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          placeholder="Enter password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
 
-        <button
-          type="submit"
-          className="btn btn-dark btn-lg btn-block"
-          onSubmit={this.onSubmit}
-        >
-          Register
-        </button>
-        <p className="forgot-password text-right">
-          Already registered <a href="/">log in?</a>
-        </p>
-      </form>
-    );
-  }
+      <button
+        type="submit"
+        className="btn btn-dark btn-lg btn-block"
+        onSubmit={onSubmit}
+      >
+        Register
+      </button>
+      <p className="forgot-password text-right">
+        Already registered <a href="/">log in?</a>
+      </p>
+    </form>
+  );
 }
 
 const mapDispatchToProps = (dispatch) => {

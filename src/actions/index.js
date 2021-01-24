@@ -42,7 +42,7 @@ export const fetchUser = (userInfo) => (dispatch) => {
       //   localStorage.setItem("token", data.header.auth - token);
       localStorage.setItem("token", data.token);
       dispatch(setUser(data));
-      history.push("/sign-up");
+      // history.push("/sign-up");
     });
 };
 
