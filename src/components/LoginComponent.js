@@ -9,7 +9,7 @@ function LoginComponent(props) {
   const history = useHistory();
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      history.push("/sign-up");
+      history.push("/protected");
     }
   });
 

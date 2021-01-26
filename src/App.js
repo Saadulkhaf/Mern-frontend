@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import SignupComponent from "./components/SignupComponent";
 import LoginComponent from "./components/LoginComponent";
+import ProtectedComponent from "./components/ProtectedComponent";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { autoLogin } from "./actions";
@@ -48,7 +49,7 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/sign-up" component={SignupComponent} />
                 <Route exact path="/sign-in" component={LoginComponent} />
-
+                <Route exact path="/protected" component={ProtectedComponent} />
                 <Route exact path="/" component={LoginComponent} />
               </Switch>
             </div>
